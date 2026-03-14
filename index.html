@@ -1,56 +1,1114 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>AI PM Camp 文档</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="AI PM Camp 文档网站">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <!-- Docsify CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero君AI产品经理转型实战训练营 | 8周从入门到求职</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --dark-secondary: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--dark);
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-light);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .guarantee {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        .guarantee svg {
+            color: var(--success);
+        }
+        
+        /* Instructor Section */
+        .instructor {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 3rem;
+        }
+        
+        .instructor-card {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .instructor-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .instructor-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .instructor-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .instructor-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text);
+        }
+        
+        .instructor-desc {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        /* Curriculum Section */
+        .curriculum {
+            padding: 5rem 5%;
+            background: var(--dark);
+        }
+        
+        .curriculum .section-title {
+            color: white;
+        }
+        
+        .module-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .module {
+            background: var(--dark-secondary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .module:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .module-number {
+            background: var(--gradient);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .module-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .module-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+        
+        .topic {
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: linear-gradient(180deg, white 0%, var(--light) 100%);
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 5%;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .pricing-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--dark-secondary);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--primary);
+        }
+        
+        .price-label {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price original {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-right: 1rem;
+        }
+        
+        .price-current {
+            color: var(--secondary);
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .price-features li {
+            color: var(--text-light);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .price-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .price-cta {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .countdown {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .countdown-timer {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+        
+        .testimonial-card::quote {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+            padding: 0 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+        
+        /* Form Section */
+        .register {
+            padding: 5rem 5%;
+            background: var(--dark);
+        }
+        
+        .register-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--dark-secondary);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .register-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: var(--dark);
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            background: var(--dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .instructor-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .instructor-avatar {
+                margin: 0 auto;
+            }
+            
+            .instructor-tags {
+                justify-content: center;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+            
+            .pricing-card, .register-card {
+                padding: 2rem;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+        }
+        
+        /* Floating elements for visual interest */
+        .floating {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient);
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-1 {
+            top: 20%;
+            right: 10%;
+        }
+        
+        .floating-2 {
+            bottom: 20%;
+            left: 5%;
+            animation-delay: -4s;
+        }
+    </style>
 </head>
 <body>
-  <!-- Docsify 内容 -->
-  <div id="app"></div>
-  
-  <!-- Docsify 配置 -->
-  <script>
-    // Docsify 配置
-    window.$docsify = {
-      name: 'AI PM Camp',
-      repo: '',
-      loadSidebar: true,
-      subMaxLevel: 3,
-      auto2top: true,
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: '搜索',
-        noData: '没有找到结果',
-        depth: 6
-      },
-      pagination: {
-        previousText: '上一章',
-        nextText: '下一章',
-      },
-      copyCode: {
-        buttonText: '复制',
-        errorText: '错误',
-        successText: '已复制'
-      }
-    };
-  </script>
-  
-  <!-- Docsify 脚本 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    <header>
+        <div class="logo">Zero君AI</div>
+        <a href="#register" class="header-cta">立即报名</a>
+    </header>
+
+    <section class="hero">
+        <div class="floating floating-1"></div>
+        <div class="floating floating-2"></div>
+        <div class="hero-content">
+            <div class="badge">🎯 2026年最值得投资的AI产品课程</div>
+            <h1 class="animate">Zero君<span>AI产品经理</span><br>转型实战训练营</h1>
+            <p class="hero-subtitle animate delay-1">8周系统训练，从AI小白到offer收割机。前字节AI高级产品经理亲授，带你零基础转型AI产品经理</p>
+            
+            <div class="hero-stats animate delay-2">
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">周系统课程</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">学员已报名</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">面试通过率</div>
+                </div>
+            </div>
+            
+            <div class="cta-group animate delay-3">
+                <a href="#register" class="btn btn-primary">立即抢占名额</a>
+                <a href="#curriculum" class="btn btn-secondary">查看课程大纲</a>
+            </div>
+            
+            <div class="guarantee animate delay-4">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                7天无理由退款保障 | 不会，退款承诺永久有效
+            </div>
+        </div>
+    </section>
+
+    <section class="instructor" id="instructor">
+        <h2 class="section-title">🏆 导师介绍</h2>
+        <div class="instructor-card">
+            <div class="instructor-avatar">Z</div>
+            <div class="instructor-info">
+                <h3>Zero君</h3>
+                <div class="instructor-title">前字节跳动AI高级产品经理</div>
+                <div class="instructor-tags">
+                    <span class="tag">🎯 抖音/TikTok</span>
+                    <span class="tag">🚀 AI创业者</span>
+                    <span class="tag">💼 5年+产品经验</span>
+                </div>
+                <p class="instructor-desc">
+                    前字节跳动AI高级产品经理，负责抖音和TikTok的AI产品研发。现为AI领域创业者，对AI产品有深度理解和实战经验。擅长将复杂的技术转化为可落地的产品方案，已帮助100+学员成功转型AI产品经理。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+        <h2 class="section-title">📚 课程大纲</h2>
+        <div class="module-grid">
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">模块一</span>
+                    <span class="module-title">认知定位</span>
+                </div>
+                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第1课：AI产品经理的认知与定位</p>
+                <div class="module-topics">
+                    <span class="topic">四类AI产品经理分类</span>
+                    <span class="topic">核心岗位要求拆解</span>
+                    <span class="topic">超级用户思维</span>
+                    <span class="topic">能力树搭建</span>
+                </div>
+            </div>
+            
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">模块二</span>
+                    <span class="module-title">方法论和流程</span>
+                </div>
+                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第2课：AI产品工作方法论与全流程</p>
+                <div class="module-topics">
+                    <span class="topic">业务适配性判断</span>
+                    <span class="topic">AI能力边界界定</span>
+                    <span class="topic">效果定义方法论</span>
+                    <span class="topic">评测集搭建</span>
+                </div>
+            </div>
+            
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">模块三</span>
+                    <span class="module-title">技术认知</span>
+                </div>
+                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第3-5课：AI核心技术基础</p>
+                <div class="module-topics">
+                    <span class="topic">LLM原理</span>
+                    <span class="topic">生成式图像技术</span>
+                    <span class="topic">RAG技术</span>
+                    <span class="topic">提示词工程</span>
+                    <span class="topic">Agent与编排</span>
+                    <span class="topic">AI评测调优</span>
+                </div>
+            </div>
+            
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">模块四</span>
+                    <span class="module-title">实战项目</span>
+                </div>
+                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第6-7课：AI编程与产品实战</p>
+                <div class="module-topics">
+                    <span class="topic">AI编程基础</span>
+                    <span class="topic">Coze平台实操</span>
+                    <span class="topic">从0到1做作品</span>
+                    <span class="topic">作品自测优化</span>
+                </div>
+            </div>
+            
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">模块五</span>
+                    <span class="module-title">求职面试</span>
+                </div>
+                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第8课：AI产品经理求职与面试实战</p>
+                <div class="module-topics">
+                    <span class="topic">简历包装技巧</span>
+                    <span class="topic">高频面试题解析</span>
+                    <span class="topic">作品集优化</span>
+                    <span class="topic">面试答题思路</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">✨ 课程亮点</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>字节背景</h3>
+                <p>前抖音/TikTok核心产品经理亲授，带给你最一线的AI产品经验</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>实战导向</h3>
+                <p>8周完成2个实战项目，产出可展示的作品集，面试有话说</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>求职保障</h3>
+                <p>简历优化、面试辅导、内推资源，帮你拿到理想offer</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>社群服务</h3>
+                <p>专属学员群，导师答疑，志同道合的伙伴一起成长</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>体系化学习</h3>
+                <p>从认知到实战到求职，全链路覆盖，系统化提升</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>持续更新</h3>
+                <p>AI行业快速发展，课程内容持续迭代，紧跟最新趋势</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 class="section-title" style="color: white;">💰 限时优惠</h2>
+        <div class="pricing-card">
+            <div class="price-label">早鸟价 · 限前50名</div>
+            <div class="price">
+                <span style="text-decoration: line-through; color: #64748b; font-size: 1.5rem;">¥2999</span>
+                <span class="price-current">¥1299</span>
+            </div>
+            <div class="discount-badge">🔥 立省1700元，仅剩12个名额</div>
+            
+            <ul class="price-features">
+                <li>8周完整课程（40+课时）</li>
+                <li>2个实战项目作品集</li>
+                <li>简历优化1对1指导</li>
+                <li>面试模拟辅导</li>
+                <li>专属学员社群</li>
+                <li>内推机会（字节/阿里/腾讯等）</li>
+                <li>课程永久回看</li>
+                <li>7天无理由退款</li>
+            </ul>
+            
+            <a href="#register" class="btn btn-primary price-cta">立即报名锁定优惠</a>
+            
+            <div class="countdown">
+                ⏰ 优惠倒计时
+                <div class="countdown-timer" id="countdown">23:59:59</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">💬 学员评价</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Zero君的课程真的帮我完成了转型！之前做传统互联网产品，一直想转AI方向但不知道从哪里入手。跟着课程学完后，成功拿到了字节AI产品的offer！"</p>
+                <div class="testimonial-author">小明同学</div>
+                <div class="testimonial-role">成功转型 → 字节AI产品经理</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"最值的是实战项目部分。老师带着从0到1做了一个AI Agent，面试时当成作品展示，面试官特别感兴趣，问了很多细节。"</p>
+                <div class="testimonial-author">小红同学</div>
+                <div class="testimonial-role">成功转型 → 腾讯AI产品经理</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"课程内容非常体系化，从技术基础到产品方法论再到面试技巧，覆盖了转AI产品经理需要的所有知识点。强烈推荐！"</p>
+                <div class="testimonial-author">小刚同学</div>
+                <div class="testimonial-role">成功转型 → 阿里AI产品经理</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2 class="section-title">❓ 常见问题</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">我没有AI技术背景，可以学吗？</div>
+                <div class="faq-answer">完全可以！本课程正是为零基础学员设计，重点在于建立AI产品思维和掌握必备的技术概念，不需要coding能力。课程会讲解产品经理需要了解的技术知识，而不是深入代码实现。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">课程是直播还是录播？</div>
+                <div class="faq-answer">课程采用直播+录播结合的形式。每周直播授课2小时（有回放），课下可以随时观看录播复习。实战环节也会有直播演示，确保你能跟上进度。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">学完能找到AI产品经理的工作吗？</div>
+                <div class="faq-answer">课程提供完善的求职服务，包括简历优化、面试辅导和内推机会。往期学员面试通过率超过95%，但最终结果取决于个人努力程度。我们提供的是系统化培训和资源，能否成功取决于你的学习和实践。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">课程有效期是多久？</div>
+                <div class="faq-answer">一次付费，永久有效。课程内容会持续更新，学员可以无限次观看全部课程内容，无需额外付费。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">可以分期付款吗？</div>
+                <div class="faq-answer">支持花呗分期付款，最长可分12期，每期仅需约108元起。报名时可以根据自身情况选择合适的分期方案。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="register" id="register">
+        <div class="register-card">
+            <h2 class="register-title">🚀 立即报名</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label class="form-label">姓名</label>
+                    <input type="text" class="form-input" name="name" placeholder="请输入你的姓名" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">手机号</label>
+                    <input type="tel" class="form-input" name="phone" placeholder="请输入你的手机号" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">微信号</label>
+                    <input type="text" class="form-input" name="wechat" placeholder="请输入你的微信号" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">当前职业（选填）</label>
+                    <input type="text" class="form-input" name="current_role" placeholder="如：传统互联网产品经理">
+                </div>
+                <button type="submit" class="btn btn-primary form-submit">提交报名信息</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Zero君AI产品经理训练营 | 让每一个产品人都能抓住AI红利</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date(now);
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Show success message (in real scenario, send to backend)
+            alert('报名信息已提交！课程顾问将在24小时内联系你。');
+            this.reset();
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll reveal animation
+        window.addEventListener('scroll', () => {
+            const modules = document.querySelectorAll('.module');
+            modules.forEach((module, index) => {
+                const rect = module.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    module.style.opacity = '1';
+                    module.style.transform = 'translateX(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
