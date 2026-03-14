@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@latest/dist/preline.min.css">
     <script src="https://cdn.jsdelivr.net/npm/preline@latest/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@2.47.0/tabler-icons.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -25,7 +26,6 @@
         .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
         .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .gradient-bg { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); }
-        .card-gradient { background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600">
@@ -36,15 +36,15 @@
                 <div class="flex items-center">
                     <span class="text-2xl font-bold gradient-text">Zero君AI</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <nav class="hidden md:flex items-center space-x-8">
                     <a href="#curriculum" class="text-slate-300 hover:text-white transition">课程大纲</a>
                     <a href="#pricing" class="text-slate-300 hover:text-white transition">价格</a>
-                    <a href="#faq" class="text-slate-300 hover:text-white transition">FAQ</a>
                     <a href="#register" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">立即报名</a>
-                </div>
+                </nav>
             </div>
         </div>
     </header>
+
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen pt-24 relative overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
@@ -53,7 +53,7 @@
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="text-center">
-                <span class="inline-block bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 px-4 py-2 rounded-full text-sm mb-6">🎯 2026年最值得投资的AI产品课程</span>
+                <span class="inline-block bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 px-4 py-2 rounded-full text-sm mb-6">2026年最值得投资的AI产品课程</span>
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                     <span class="gradient-text">Zero君AI产品经理</span><br>转型实战训练营
                 </h1>
@@ -64,12 +64,12 @@
                         <div class="text-slate-400 text-sm">周系统课程</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-white">100+</div>
-                        <div class="text-slate-400 text-sm">学员已报名</div>
+                        <div class="text-4xl font-bold text-white">8</div>
+                        <div class="text-slate-400 text-sm">节完整课程</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-white">95%</div>
-                        <div class="text-slate-400 text-sm">面试通过率</div>
+                        <div class="text-4xl font-bold text-white">40+</div>
+                        <div class="text-slate-400 text-sm">课时</div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -77,371 +77,354 @@
                     <a href="#curriculum" class="border border-slate-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition">查看课程大纲</a>
                 </div>
                 <div class="mt-6 flex items-center justify-center gap-2 text-slate-400">
-                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <i class="ti ti-shield-check text-green-500 text-xl"></i>
                     7天无理由退款保障 | 不会，退款承诺永久有效
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Instructor Section -->
     <section class="py-20 bg-white" id="instructor">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">🏆 导师介绍</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">导师介绍</h2>
             <div class="max-w-4xl mx-auto">
                 <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg border border-slate-100">
                     <div class="flex flex-col md:flex-row gap-8 items-center">
                         <div class="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-cyan-500 flex-shrink-0">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zero" alt="Zero君" class="w-full h-full object-cover">
+                            <img src="https://pic1.img.6p6.info/large/6e0e0124ly1hbnpk4p8Objects0-0a.png" alt="Zero君" class="w-full h-full object-cover">
                         </div>
                         <div class="text-center md:text-left">
                             <h3 class="text-2xl font-bold text-slate-900 mb-2">Zero君</h3>
                             <p class="text-indigo-600 font-semibold mb-4">前字节跳动AI高级产品经理 | 某大厂AI Agent高级产品经理</p>
                             <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">🎯 抖音/TikTok</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">🚀 AI Agent</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">💼 5年+AI产品经验</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">�即刻3880+粉丝</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">抖音/TikTok</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">AI Agent</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">5年+AI产品经验</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">即刻3900+粉丝</span>
                             </div>
-                            <p class="text-slate-600 leading-relaxed">我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有3880+粉丝。年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1/10分。</p>
+                            <p class="text-slate-600 leading-relaxed">我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有3900+粉丝。年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1/10分。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Curriculum Section -->
+
+    <!-- Curriculum Section - Full 8 Lessons with Preline Accordion -->
     <section class="py-20 bg-slate-900" id="curriculum">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">📚 课程大纲</h2>
-            
-            <!-- Preline Tabs -->
-            <div class="hs-tabs-instance max-w-4xl mx-auto" data-hs-tabs-static-classes="flex gap-2 mb-8" data-hs-tabs-pill-static-classes="bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-4 py-2 transition" data-hs-tabs-pill-active-classes="!bg-indigo-600 !text-white">
-                <ul class="flex flex-wrap gap-2 justify-center" data-hs-tabs="">
-                    <li class="nav-item"><a class="nav-link active bg-indigo-600 text-white rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module1">模块一</a></li>
-                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module2">模块二</a></li>
-                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module3">模块三</a></li>
-                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module4">模块四</a></li>
-                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module5">模块五</a></li>
-                </ul>
-            </div>
-            
-            <div class="mt-8 space-y-4 max-w-4xl mx-auto">
-                <div id="tab-module1" class="hs-tab-active:block hidden">
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块一</span>
-                            <h3 class="text-xl font-bold text-white">认知定位</h3>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">课程大纲</h2>
+            <p class="text-slate-400 text-center mb-12">8节系统课程，从入门到求职，一站式搞定</p>
+
+            <!-- Preline Accordion -->
+            <div class="hs-accordion-group space-y-4">
+                
+                <!-- Lesson 1 -->
+                <div class="hs-accordion active bg-slate-800 rounded-xl border border-slate-700" id="lesson1">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">1</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI产品经理的认知与定位</h3>
+                                <p class="text-slate-400 text-sm">模块一：认知定位</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400 mb-4">第1课：AI产品经理的认知与定位</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">四类AI产品经理分类</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">核心岗位要求拆解</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">超级用户思维</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">能力树搭建</span>
-                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson1-collapse" class="hs-accordion-collapse px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>四类AI产品经理的分类与岗位差异</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI产品经理核心岗位要求拆解</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>底层能力构建：超级用户思维、技术深度理解</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>从"超级用户"视角锚定岗位核心价值</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>由JD推导学习路径与能力树搭建</li>
+                        </ul>
                     </div>
                 </div>
-                <div id="tab-module2" class="hs-tab-active:block hidden">
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块二</span>
-                            <h3 class="text-xl font-bold text-white">方法论和流程</h3>
+
+                <!-- Lesson 2 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson2">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">2</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI产品工作方法论与全流程</h3>
+                                <p class="text-slate-400 text-sm">模块二：方法论和流程</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400 mb-4">第2课：AI产品工作方法论与全流程</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">业务适配性判断</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI能力边界界定</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">效果定义方法论</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">评测集搭建</span>
-                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson2-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>业务/自身与AI方向的适配性判断</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI产品的能力边界与适用场景界定</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI产品效果定义的核心方法论</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>评测集搭建与AI产品工作全流程梳理</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>第一步：确定AI适配的业务场景的实操方法</li>
+                        </ul>
                     </div>
                 </div>
-                <div id="tab-module3" class="hs-tab-active:block hidden">
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块三</span>
-                            <h3 class="text-xl font-bold text-white">技术认知</h3>
+
+                <!-- Lesson 3 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson3">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">3</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI核心技术基础（LLM与生成式技术）</h3>
+                                <p class="text-slate-400 text-sm">模块三：技术认知</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400 mb-4">第3-5课：AI核心技术基础</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">LLM原理</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">生成式图像技术</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">RAG技术</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">提示词工程</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">Agent与编排</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI评测调优</span>
-                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson3-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>LLM（大语言模型）的本质原理</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>生成式图像技术核心要点</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI行业发展脉络与趋势</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>大模型"幻觉"问题的成因与应对</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>RAG（检索增强生成）技术及不同类型的应用逻辑</li>
+                        </ul>
                     </div>
                 </div>
-                <div id="tab-module4" class="hs-tab-active:block hidden">
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块四</span>
-                            <h3 class="text-xl font-bold text-white">实战项目</h3>
+
+                <!-- Lesson 4 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson4">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">4</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI产品评测与调优技术</h3>
+                                <p class="text-slate-400 text-sm">模块三：技术认知</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400 mb-4">第6-7课：AI编程与产品实战</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI编程基础</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">Coze平台实操</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">从0到1做作品</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">作品自测优化</span>
-                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson4-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>产品/技术/用户维度的三种评测方法</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>提示词工程的实操技巧与原则</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>大模型微调的核心逻辑与落地条件</li>
+                        </ul>
                     </div>
                 </div>
-                <div id="tab-module5" class="hs-tab-active:block hidden">
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块五</span>
-                            <h3 class="text-xl font-bold text-white">求职面试</h3>
+
+                <!-- Lesson 5 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson5">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">5</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI Agent与编排技术核心</h3>
+                                <p class="text-slate-400 text-sm">模块三：技术认知</p>
+                            </div>
                         </div>
-                        <p class="text-slate-400 mb-4">第8课：AI产品经理求职与面试实战</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">简历包装技巧</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">高频面试题解析</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">作品集优化</span>
-                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">面试答题思路</span>
-                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson5-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>Agent范式核心（结合RAG、ReAct等框架）</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>MCP（多上下文处理）与记忆机制原理</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI编排技术的核心逻辑与应用场景</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Lesson 6 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson6">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">6</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI编程与Coze平台实操</h3>
+                                <p class="text-slate-400 text-sm">模块四：实战</p>
+                            </div>
+                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson6-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>产品经理视角的AI编程基础（轻量编程能力）</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>Coze（扣子）平台：无代码搭建问答机器人实操</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>结合AI编程与Coze实现简单AI产品的技术落地</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lesson 7 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson7">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">7</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI产品全流程实战（从0到1做作品）</h3>
+                                <p class="text-slate-400 text-sm">模块四：实战</p>
+                            </div>
+                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson7-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI产品核心要素：需求分析+评测标准+AI编排</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>独立完成一款AI产品作品（涵盖需求、评测、Agent应用、AI编程/Coze落地）</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>作品的自测与优化方法</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lesson 8 -->
+                <div class="hs-accordion bg-slate-800 rounded-xl border border-slate-700" id="lesson8">
+                    <button class="hs-accordion-toggle w-full px-6 py-5 flex items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">8</span>
+                            <div class="text-left">
+                                <h3 class="text-lg font-bold text-white">AI产品经理求职与面试实战</h3>
+                                <p class="text-slate-400 text-sm">模块五：简历和面试</p>
+                            </div>
+                        </div>
+                        <i class="ti ti-chevron-down text-slate-400 hs-accordion-active:rotate-180 transition-transform"></i>
+                    </button>
+                    <div id="lesson8-collapse" class="hs-accordion-collapse hidden px-6 pb-5">
+                        <ul class="text-slate-300 space-y-3 mt-3 ml-14">
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>简历的针对性包装技巧（突出超级用户思维、技术理解能力）</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>AI产品经理面试高频题解析与答题思路</li>
+                            <li class="flex items-start gap-2"><i class="ti ti-arrow-right text-indigo-400 mt-1"></i>作品集的润色、优化与展示方法</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
     <!-- Features Section -->
     <section class="py-20 bg-gradient-to-b from-white to-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">✨ 课程亮点</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">课程亮点</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🎯</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-brand-byteflow text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">字节背景</h3>
                     <p class="text-slate-600">前抖音/TikTok核心产品经理亲授，带给你最一线的AI产品经验</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🚀</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-rocket text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">实战导向</h3>
                     <p class="text-slate-600">8周完成2个实战项目，产出可展示的作品集，面试有话说</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">💼</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-briefcase text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">求职保障</h3>
                     <p class="text-slate-600">简历优化、面试辅导、内推资源，帮你拿到理想offer</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">👥</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-users text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">社群服务</h3>
                     <p class="text-slate-600">专属学员群，导师答疑，志同道合的伙伴一起成长</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">📚</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-book text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">体系化学习</h3>
                     <p class="text-slate-600">从认知到实战到求职，全链路覆盖，系统化提升</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🔄</div>
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4">
+                        <i class="ti ti-refresh text-white text-3xl"></i>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">持续更新</h3>
                     <p class="text-slate-600">AI行业快速发展，课程内容持续迭代，紧跟最新趋势</p>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Pricing Section -->
     <section class="py-20 bg-slate-900 relative overflow-hidden" id="pricing">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">💰 限时优惠</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">限时优惠</h2>
             <div class="max-w-lg mx-auto">
                 <div class="bg-slate-800 rounded-3xl p-8 border-2 border-indigo-500 shadow-2xl shadow-indigo-500/20">
-                    <div class="text-center text-slate-400 text-sm uppercase tracking-wider mb-2">第2期 · 2026年3月28日开营 · 限前30名</div>
+                    <div class="text-center text-slate-400 text-sm uppercase tracking-wider mb-2">第2期 | 2026年3月28日开营 | 限前30名</div>
                     <div class="text-center mb-6">
                         <span class="text-slate-500 line-through text-xl">¥6999</span>
                         <span class="text-5xl font-bold text-white ml-2">¥4999</span>
                     </div>
                     <div class="text-center">
-                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold">🔥 立省2000元，仅剩30个名额</span>
+                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold">立省2000元，仅剩30个名额</span>
                     </div>
                     <ul class="mt-8 space-y-4">
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             8周完整课程（40+课时）
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             2个实战项目作品集
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             简历优化1对1指导
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             面试模拟辅导
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             专属学员社群
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             内推机会（字节/阿里/腾讯等）
                         </li>
                         <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             课程永久回看
                         </li>
                         <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <i class="ti ti-check text-green-500 flex-shrink-0"></i>
                             7天无理由退款
                         </li>
                     </ul>
                     <a href="#register" class="block gradient-bg text-white text-center py-4 rounded-full font-semibold text-lg mt-8 hover:opacity-90 transition shadow-lg shadow-indigo-500/30">立即报名锁定优惠</a>
-                    <div class="text-center mt-6 text-amber-500 font-semibold">
-                        ⏰ 优惠倒计时 <span id="countdown" class="text-2xl">23:59:59</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Testimonials -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">💬 学员评价</h2>
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
-                    <p class="text-slate-600 mb-6 italic">"Zero君的课程真的帮我完成了转型！之前做传统互联网产品，一直想转AI方向但不知道从哪里入手。跟着课程学完后，成功拿到了字节AI产品的offer！"</p>
-                    <div>
-                        <div class="font-semibold text-slate-900">小明同学</div>
-                        <div class="text-indigo-600 text-sm">成功转型 → 字节AI产品经理</div>
-                    </div>
-                </div>
-                <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
-                    <p class="text-slate-600 mb-6 italic">"最值的是实战项目部分。老师带着从0到1做了一个AI Agent，面试时当成作品展示，面试官特别感兴趣，问了很多细节。"</p>
-                    <div>
-                        <div class="font-semibold text-slate-900">小红同学</div>
-                        <div class="text-indigo-600 text-sm">成功转型 → 腾讯AI产品经理</div>
-                    </div>
-                </div>
-                <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
-                    <p class="text-slate-600 mb-6 italic">"课程内容非常体系化，从技术基础到产品方法论再到面试技巧，覆盖了转AI产品经理需要的所有知识点。强烈推荐！"</p>
-                    <div>
-                        <div class="font-semibold text-slate-900">小刚同学</div>
-                        <div class="text-indigo-600 text-sm">成功转型 → 阿里AI产品经理</div>
-                    </div>
-                </div>
+
+    <!-- WeChat QR Code Section -->
+    <section class="py-20 bg-white" id="register">
+        <div class="max-w-xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">扫码添加微信</h2>
+            <p class="text-slate-600 mb-6">备注：课程咨询</p>
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 inline-block">
+                <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="微信二维码" class="w-64 h-64 object-contain">
             </div>
+            <p class="text-slate-500 mt-6">工作日24小时内通过验证</p>
         </div>
     </section>
-    <!-- FAQ Section with Preline Accordion -->
-    <section class="py-20 bg-slate-50" id="faq">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">❓ 常见问题</h2>
-            
-            <!-- Preline Accordion -->
-            <div class="hs-accordion-group space-y-4">
-                <div class="hs-accordion active bg-white rounded-xl overflow-hidden" id="faq-1">
-                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-1-collapse">
-                        <span class="font-semibold text-slate-900">我没有AI技术背景，可以学吗？</span>
-                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
-                    </button>
-                    <div id="faq-1-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-1">
-                        <div class="px-6 pb-6 text-slate-600">完全可以！本课程正是为零基础学员设计，重点在于建立AI产品思维和掌握必备的技术概念，不需要coding能力。课程会讲解产品经理需要了解的技术知识，而不是深入代码实现。</div>
-                    </div>
-                </div>
-                
-                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-2">
-                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-2-collapse">
-                        <span class="font-semibold text-slate-900">课程是直播还是录播？</span>
-                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
-                    </button>
-                    <div id="faq-2-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-2">
-                        <div class="px-6 pb-6 text-slate-600">课程采用直播+录播结合的形式。每周直播授课2小时（有回放），课下可以随时观看录播复习。实战环节也会有直播演示，确保你能跟上进度。</div>
-                    </div>
-                </div>
-                
-                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-3">
-                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-3-collapse">
-                        <span class="font-semibold text-slate-900">学完能找到AI产品经理的工作吗？</span>
-                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
-                    </button>
-                    <div id="faq-3-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-3">
-                        <div class="px-6 pb-6 text-slate-600">课程提供完善的求职服务，包括简历优化、面试辅导和内推机会。往期学员面试通过率超过95%，但最终结果取决于个人努力程度。我们提供的是系统化培训和资源，能否成功取决于你的学习和实践。</div>
-                    </div>
-                </div>
-                
-                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-4">
-                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-4-collapse">
-                        <span class="font-semibold text-slate-900">课程有效期是多久？</span>
-                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
-                    </button>
-                    <div id="faq-4-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-4">
-                        <div class="px-6 pb-6 text-slate-600">一次付费，永久有效。课程内容会持续更新，学员可以无限次观看全部课程内容，无需额外付费。</div>
-                    </div>
-                </div>
-                
-                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-5">
-                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-5-collapse">
-                        <span class="font-semibold text-slate-900">可以分期付款吗？</span>
-                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
-                    </button>
-                    <div id="faq-5-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-5">
-                        <div class="px-6 pb-6 text-slate-600">支持花呗分期付款，最长可分12期，每期仅需约108元起。报名时可以根据自身情况选择合适的分期方案。</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Register Section -->
-    <section class="py-20 bg-slate-900" id="register">
-        <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-800 rounded-3xl p-8 text-center">
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">🚀 扫码添加微信</h2>
-                <div class="mb-6">
-                    <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="微信二维码" class="w-64 h-64 mx-auto rounded-2xl">
-                </div>
-                <p class="text-slate-400 text-lg mb-2">扫码添加微信，备注：课程咨询</p>
-                <p class="text-slate-500 text-sm">工作日24小时内通过验证</p>
-                <a href="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" target="_blank" class="inline-block gradient-bg text-white px-8 py-3 rounded-full font-semibold mt-6 hover:opacity-90 transition">点击查看大图</a>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Footer -->
-    <footer class="py-8 bg-slate-950 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-slate-500">© 2026 Zero君AI产品经理训练营 | 让每一个产品人都能抓住AI红利</p>
-        </div>
+    <footer class="py-8 bg-slate-900 text-slate-400 text-center">
+        <p>Zero君AI产品经理转型实战训练营</p>
     </footer>
-    
+
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const now = new Date();
-            const endOfDay = new Date(now);
-            endOfDay.setHours(23, 59, 59, 999);
-            const diff = endOfDay - now;
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById("countdown").textContent = 
-                String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Smooth scroll
-        document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
-            anchor.addEventListener("click", function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute("href"));
-                if (target) target.scrollIntoView({ behavior: "smooth" });
-            });
+        // Initialize Preline Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            HSAccordion.autoInit();
         });
     </script>
 </body>
