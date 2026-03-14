@@ -4,1099 +4,443 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero君AI产品经理转型实战训练营 | 8周从入门到求职</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@latest/dist/preline.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/preline@latest/dist/preline.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {50: "#eff6ff", 100: "#dbeafe", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca"},
+                        secondary: {500: "#06b6d4", 600: "#0891b2"},
+                        dark: {700: "#1e293b", 800: "#1e293b", 900: "#0f172a"}
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #06b6d4;
-            --accent: #f59e0b;
-            --dark: #0f172a;
-            --dark-secondary: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
-            --text-light: #64748b;
-            --success: #10b981;
-            --gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--light);
-            overflow-x: hidden;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .animate {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        
-        /* Header */
-        header {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .header-cta {
-            background: var(--gradient);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: var(--dark);
-            padding: 120px 5% 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.2);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #818cf8;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero h1 {
-            color: white;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-subtitle {
-            color: var(--text-light);
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-        
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            border-color: white;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .guarantee {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-        
-        .guarantee svg {
-            color: var(--success);
-        }
-        
-        /* Instructor Section */
-        .instructor {
-            padding: 5rem 5%;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--dark);
-            margin-bottom: 3rem;
-        }
-        
-        .instructor-card {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .instructor-avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            font-weight: 700;
-        }
-        
-        .instructor-info h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .instructor-title {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .instructor-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-        
-        .tag {
-            background: var(--light);
-            padding: 0.4rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--text);
-        }
-        
-        .instructor-desc {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-        
-        /* Curriculum Section */
-        .curriculum {
-            padding: 5rem 5%;
-            background: var(--dark);
-        }
-        
-        .curriculum .section-title {
-            color: white;
-        }
-        
-        .module-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            gap: 1.5rem;
-        }
-        
-        .module {
-            background: var(--dark-secondary);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .module:hover {
-            border-color: var(--primary);
-            transform: translateX(10px);
-        }
-        
-        .module-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .module-number {
-            background: var(--gradient);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .module-title {
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .module-topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-        }
-        
-        .topic {
-            background: rgba(99, 102, 241, 0.2);
-            color: #a5b4fc;
-            padding: 0.3rem 0.7rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 5rem 5%;
-            background: linear-gradient(180deg, white 0%, var(--light) 100%);
-        }
-        
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .feature-card h3 {
-            color: var(--dark);
-            margin-bottom: 0.8rem;
-        }
-        
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 5rem 5%;
-            background: var(--dark);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 60%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .pricing-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--dark-secondary);
-            border-radius: 24px;
-            padding: 3rem;
-            position: relative;
-            z-index: 1;
-            border: 2px solid var(--primary);
-        }
-        
-        .price-label {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-        
-        .price {
-            text-align: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price original {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            text-decoration: line-through;
-            margin-right: 1rem;
-        }
-        
-        .price-current {
-            color: var(--secondary);
-        }
-        
-        .discount-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        
-        .price-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .price-features li {
-            color: var(--text-light);
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .price-features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
-        }
-        
-        .price-cta {
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-        
-        .countdown {
-            text-align: center;
-            margin-top: 2rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .countdown-timer {
-            font-size: 1.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 5%;
-            background: white;
-        }
-        
-        .testimonial-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 16px;
-            position: relative;
-        }
-        
-        .testimonial-card::quote {
-            content: '"';
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.3;
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-text {
-            color: var(--text);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .testimonial-role {
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            padding: 5rem 5%;
-            background: var(--light);
-        }
-        
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-        
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s;
-            padding: 0 1.5rem;
-            color: var(--text-light);
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding-bottom: 1.5rem;
-        }
-        
-        /* Form Section */
-        .register {
-            padding: 5rem 5%;
-            background: var(--dark);
-        }
-        
-        .register-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--dark-secondary);
-            border-radius: 24px;
-            padding: 3rem;
-        }
-        
-        .register-title {
-            color: white;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.75rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-label {
-            display: block;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            background: var(--dark);
-            color: white;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .form-submit {
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 2rem 5%;
-            background: var(--dark);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: var(--text-light);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-stats {
-                gap: 1.5rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .instructor-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .instructor-avatar {
-                margin: 0 auto;
-            }
-            
-            .instructor-tags {
-                justify-content: center;
-            }
-            
-            .cta-group {
-                flex-direction: column;
-            }
-            
-            .btn {
-                text-align: center;
-            }
-            
-            .pricing-card, .register-card {
-                padding: 2rem;
-            }
-            
-            .price {
-                font-size: 3rem;
-            }
-        }
-        
-        /* Floating elements for visual interest */
-        .floating {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: var(--gradient);
-            filter: blur(100px);
-            opacity: 0.3;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .floating-1 {
-            top: 20%;
-            right: 10%;
-        }
-        
-        .floating-2 {
-            bottom: 20%;
-            left: 5%;
-            animation-delay: -4s;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); }
+        .card-gradient { background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%); }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo">Zero君AI</div>
-        <a href="#register" class="header-cta">立即报名</a>
+<body class="bg-slate-50 text-slate-600">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-text">Zero君AI</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#curriculum" class="text-slate-300 hover:text-white transition">课程大纲</a>
+                    <a href="#pricing" class="text-slate-300 hover:text-white transition">价格</a>
+                    <a href="#faq" class="text-slate-300 hover:text-white transition">FAQ</a>
+                    <a href="#register" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">立即报名</a>
+                </div>
+            </div>
+        </div>
     </header>
-
-    <section class="hero">
-        <div class="floating floating-1"></div>
-        <div class="floating floating-2"></div>
-        <div class="hero-content">
-            <div class="badge">🎯 2026年最值得投资的AI产品课程</div>
-            <h1 class="animate">Zero君<span>AI产品经理</span><br>转型实战训练营</h1>
-            <p class="hero-subtitle animate delay-1">8周系统训练，从AI小白到offer收割机。前字节AI高级产品经理亲授，带你零基础转型AI产品经理</p>
-            
-            <div class="hero-stats animate delay-2">
-                <div class="stat">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">周系统课程</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">学员已报名</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">面试通过率</div>
-                </div>
-            </div>
-            
-            <div class="cta-group animate delay-3">
-                <a href="#register" class="btn btn-primary">立即抢占名额</a>
-                <a href="#curriculum" class="btn btn-secondary">查看课程大纲</a>
-            </div>
-            
-            <div class="guarantee animate delay-4">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                7天无理由退款保障 | 不会，退款承诺永久有效
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen pt-24 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 -right-32 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
         </div>
-    </section>
-
-    <section class="instructor" id="instructor">
-        <h2 class="section-title">🏆 导师介绍</h2>
-        <div class="instructor-card">
-            <div class="instructor-avatar">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zero" alt="Zero君" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
-            </div>
-            <div class="instructor-info">
-                <h3>Zero君</h3>
-                <div class="instructor-title">前字节跳动AI高级产品经理 | 某大厂AI Agent高级产品经理</div>
-                <div class="instructor-tags">
-                    <span class="tag">🎯 抖音/TikTok</span>
-                    <span class="tag">🚀 AI Agent</span>
-                    <span class="tag">💼 5年+AI产品经验</span>
-                    <span class="tag">📱 即刻3880+粉丝</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="text-center">
+                <span class="inline-block bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 px-4 py-2 rounded-full text-sm mb-6">🎯 2026年最值得投资的AI产品课程</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    <span class="gradient-text">Zero君AI产品经理</span><br>转型实战训练营
+                </h1>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">8周系统训练，从AI小白到offer收割机。前字节AI高级产品经理亲授，带你零基础转型AI产品经理</p>
+                <div class="flex flex-wrap justify-center gap-8 mb-10">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white">8</div>
+                        <div class="text-slate-400 text-sm">周系统课程</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white">100+</div>
+                        <div class="text-slate-400 text-sm">学员已报名</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white">95%</div>
+                        <div class="text-slate-400 text-sm">面试通过率</div>
+                    </div>
                 </div>
-                <p class="instructor-desc">
-                    我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有3880+粉丝。年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1/10分。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="curriculum" id="curriculum">
-        <h2 class="section-title">📚 课程大纲</h2>
-        <div class="module-grid">
-            <div class="module">
-                <div class="module-header">
-                    <span class="module-number">模块一</span>
-                    <span class="module-title">认知定位</span>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#register" class="gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition shadow-lg shadow-indigo-500/30">立即抢占名额</a>
+                    <a href="#curriculum" class="border border-slate-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition">查看课程大纲</a>
                 </div>
-                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第1课：AI产品经理的认知与定位</p>
-                <div class="module-topics">
-                    <span class="topic">四类AI产品经理分类</span>
-                    <span class="topic">核心岗位要求拆解</span>
-                    <span class="topic">超级用户思维</span>
-                    <span class="topic">能力树搭建</span>
-                </div>
-            </div>
-            
-            <div class="module">
-                <div class="module-header">
-                    <span class="module-number">模块二</span>
-                    <span class="module-title">方法论和流程</span>
-                </div>
-                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第2课：AI产品工作方法论与全流程</p>
-                <div class="module-topics">
-                    <span class="topic">业务适配性判断</span>
-                    <span class="topic">AI能力边界界定</span>
-                    <span class="topic">效果定义方法论</span>
-                    <span class="topic">评测集搭建</span>
-                </div>
-            </div>
-            
-            <div class="module">
-                <div class="module-header">
-                    <span class="module-number">模块三</span>
-                    <span class="module-title">技术认知</span>
-                </div>
-                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第3-5课：AI核心技术基础</p>
-                <div class="module-topics">
-                    <span class="topic">LLM原理</span>
-                    <span class="topic">生成式图像技术</span>
-                    <span class="topic">RAG技术</span>
-                    <span class="topic">提示词工程</span>
-                    <span class="topic">Agent与编排</span>
-                    <span class="topic">AI评测调优</span>
-                </div>
-            </div>
-            
-            <div class="module">
-                <div class="module-header">
-                    <span class="module-number">模块四</span>
-                    <span class="module-title">实战项目</span>
-                </div>
-                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第6-7课：AI编程与产品实战</p>
-                <div class="module-topics">
-                    <span class="topic">AI编程基础</span>
-                    <span class="topic">Coze平台实操</span>
-                    <span class="topic">从0到1做作品</span>
-                    <span class="topic">作品自测优化</span>
-                </div>
-            </div>
-            
-            <div class="module">
-                <div class="module-header">
-                    <span class="module-number">模块五</span>
-                    <span class="module-title">求职面试</span>
-                </div>
-                <p style="color: #94a3b8; margin-bottom: 0.8rem;">第8课：AI产品经理求职与面试实战</p>
-                <div class="module-topics">
-                    <span class="topic">简历包装技巧</span>
-                    <span class="topic">高频面试题解析</span>
-                    <span class="topic">作品集优化</span>
-                    <span class="topic">面试答题思路</span>
+                <div class="mt-6 flex items-center justify-center gap-2 text-slate-400">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    7天无理由退款保障 | 不会，退款承诺永久有效
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="features">
-        <h2 class="section-title">✨ 课程亮点</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>字节背景</h3>
-                <p>前抖音/TikTok核心产品经理亲授，带给你最一线的AI产品经验</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>实战导向</h3>
-                <p>8周完成2个实战项目，产出可展示的作品集，面试有话说</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💼</div>
-                <h3>求职保障</h3>
-                <p>简历优化、面试辅导、内推资源，帮你拿到理想offer</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>社群服务</h3>
-                <p>专属学员群，导师答疑，志同道合的伙伴一起成长</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>体系化学习</h3>
-                <p>从认知到实战到求职，全链路覆盖，系统化提升</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3>持续更新</h3>
-                <p>AI行业快速发展，课程内容持续迭代，紧跟最新趋势</p>
+    <!-- Instructor Section -->
+    <section class="py-20 bg-white" id="instructor">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">🏆 导师介绍</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-cyan-500 flex-shrink-0">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Zero" alt="Zero君" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Zero君</h3>
+                            <p class="text-indigo-600 font-semibold mb-4">前字节跳动AI高级产品经理 | 某大厂AI Agent高级产品经理</p>
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">🎯 抖音/TikTok</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">🚀 AI Agent</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">💼 5年+AI产品经验</span>
+                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">�即刻3880+粉丝</span>
+                            </div>
+                            <p class="text-slate-600 leading-relaxed">我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有3880+粉丝。年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1/10分。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <section class="pricing" id="pricing">
-        <h2 class="section-title" style="color: white;">💰 限时优惠</h2>
-        <div class="pricing-card">
-            <div class="price-label">第2期 · 2026年3月28日开营 · 限前30名</div>
-            <div class="price">
-                <span style="text-decoration: line-through; color: #64748b; font-size: 1.5rem;">¥6999</span>
-                <span class="price-current">¥4999</span>
-            </div>
-            <div class="discount-badge">🔥 立省2000元，仅剩30个名额</div>
+    <!-- Curriculum Section -->
+    <section class="py-20 bg-slate-900" id="curriculum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">📚 课程大纲</h2>
             
-            <ul class="price-features">
-                <li>8周完整课程（40+课时）</li>
-                <li>2个实战项目作品集</li>
-                <li>简历优化1对1指导</li>
-                <li>面试模拟辅导</li>
-                <li>专属学员社群</li>
-                <li>内推机会（字节/阿里/腾讯等）</li>
-                <li>课程永久回看</li>
-                <li>7天无理由退款</li>
-            </ul>
+            <!-- Preline Tabs -->
+            <div class="hs-tabs-instance max-w-4xl mx-auto" data-hs-tabs-static-classes="flex gap-2 mb-8" data-hs-tabs-pill-static-classes="bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-4 py-2 transition" data-hs-tabs-pill-active-classes="!bg-indigo-600 !text-white">
+                <ul class="flex flex-wrap gap-2 justify-center" data-hs-tabs="">
+                    <li class="nav-item"><a class="nav-link active bg-indigo-600 text-white rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module1">模块一</a></li>
+                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module2">模块二</a></li>
+                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module3">模块三</a></li>
+                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module4">模块四</a></li>
+                    <li class="nav-item"><a class="nav-link bg-slate-800 text-slate-400 hover:bg-slate-700 rounded-full px-5 py-2 font-medium transition" href="javascript:;" data-hs-tab="#tab-module5">模块五</a></li>
+                </ul>
+            </div>
             
-            <a href="#register" class="btn btn-primary price-cta">立即报名锁定优惠</a>
+            <div class="mt-8 space-y-4 max-w-4xl mx-auto">
+                <div id="tab-module1" class="hs-tab-active:block hidden">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块一</span>
+                            <h3 class="text-xl font-bold text-white">认知定位</h3>
+                        </div>
+                        <p class="text-slate-400 mb-4">第1课：AI产品经理的认知与定位</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">四类AI产品经理分类</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">核心岗位要求拆解</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">超级用户思维</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">能力树搭建</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-module2" class="hs-tab-active:block hidden">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块二</span>
+                            <h3 class="text-xl font-bold text-white">方法论和流程</h3>
+                        </div>
+                        <p class="text-slate-400 mb-4">第2课：AI产品工作方法论与全流程</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">业务适配性判断</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI能力边界界定</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">效果定义方法论</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">评测集搭建</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-module3" class="hs-tab-active:block hidden">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块三</span>
+                            <h3 class="text-xl font-bold text-white">技术认知</h3>
+                        </div>
+                        <p class="text-slate-400 mb-4">第3-5课：AI核心技术基础</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">LLM原理</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">生成式图像技术</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">RAG技术</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">提示词工程</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">Agent与编排</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI评测调优</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-module4" class="hs-tab-active:block hidden">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块四</span>
+                            <h3 class="text-xl font-bold text-white">实战项目</h3>
+                        </div>
+                        <p class="text-slate-400 mb-4">第6-7课：AI编程与产品实战</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">AI编程基础</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">Coze平台实操</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">从0到1做作品</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">作品自测优化</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-module5" class="hs-tab-active:block hidden">
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">模块五</span>
+                            <h3 class="text-xl font-bold text-white">求职面试</h3>
+                        </div>
+                        <p class="text-slate-400 mb-4">第8课：AI产品经理求职与面试实战</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">简历包装技巧</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">高频面试题解析</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">作品集优化</span>
+                            <span class="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full text-sm">面试答题思路</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">✨ 课程亮点</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">字节背景</h3>
+                    <p class="text-slate-600">前抖音/TikTok核心产品经理亲授，带给你最一线的AI产品经验</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">实战导向</h3>
+                    <p class="text-slate-600">8周完成2个实战项目，产出可展示的作品集，面试有话说</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">💼</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">求职保障</h3>
+                    <p class="text-slate-600">简历优化、面试辅导、内推资源，帮你拿到理想offer</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">👥</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">社群服务</h3>
+                    <p class="text-slate-600">专属学员群，导师答疑，志同道合的伙伴一起成长</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">体系化学习</h3>
+                    <p class="text-slate-600">从认知到实战到求职，全链路覆盖，系统化提升</p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center text-3xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">持续更新</h3>
+                    <p class="text-slate-600">AI行业快速发展，课程内容持续迭代，紧跟最新趋势</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden" id="pricing">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">💰 限时优惠</h2>
+            <div class="max-w-lg mx-auto">
+                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-indigo-500 shadow-2xl shadow-indigo-500/20">
+                    <div class="text-center text-slate-400 text-sm uppercase tracking-wider mb-2">第2期 · 2026年3月28日开营 · 限前30名</div>
+                    <div class="text-center mb-6">
+                        <span class="text-slate-500 line-through text-xl">¥6999</span>
+                        <span class="text-5xl font-bold text-white ml-2">¥4999</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold">🔥 立省2000元，仅剩30个名额</span>
+                    </div>
+                    <ul class="mt-8 space-y-4">
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            8周完整课程（40+课时）
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            2个实战项目作品集
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            简历优化1对1指导
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            面试模拟辅导
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            专属学员社群
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            内推机会（字节/阿里/腾讯等）
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300 pb-4 border-b border-slate-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            课程永久回看
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            7天无理由退款
+                        </li>
+                    </ul>
+                    <a href="#register" class="block gradient-bg text-white text-center py-4 rounded-full font-semibold text-lg mt-8 hover:opacity-90 transition shadow-lg shadow-indigo-500/30">立即报名锁定优惠</a>
+                    <div class="text-center mt-6 text-amber-500 font-semibold">
+                        ⏰ 优惠倒计时 <span id="countdown" class="text-2xl">23:59:59</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">💬 学员评价</h2>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-slate-50 rounded-2xl p-6">
+                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
+                    <p class="text-slate-600 mb-6 italic">"Zero君的课程真的帮我完成了转型！之前做传统互联网产品，一直想转AI方向但不知道从哪里入手。跟着课程学完后，成功拿到了字节AI产品的offer！"</p>
+                    <div>
+                        <div class="font-semibold text-slate-900">小明同学</div>
+                        <div class="text-indigo-600 text-sm">成功转型 → 字节AI产品经理</div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-6">
+                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
+                    <p class="text-slate-600 mb-6 italic">"最值的是实战项目部分。老师带着从0到1做了一个AI Agent，面试时当成作品展示，面试官特别感兴趣，问了很多细节。"</p>
+                    <div>
+                        <div class="font-semibold text-slate-900">小红同学</div>
+                        <div class="text-indigo-600 text-sm">成功转型 → 腾讯AI产品经理</div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-6">
+                    <div class="text-5xl text-indigo-500 font-serif mb-4">"</div>
+                    <p class="text-slate-600 mb-6 italic">"课程内容非常体系化，从技术基础到产品方法论再到面试技巧，覆盖了转AI产品经理需要的所有知识点。强烈推荐！"</p>
+                    <div>
+                        <div class="font-semibold text-slate-900">小刚同学</div>
+                        <div class="text-indigo-600 text-sm">成功转型 → 阿里AI产品经理</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section with Preline Accordion -->
+    <section class="py-20 bg-slate-50" id="faq">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">❓ 常见问题</h2>
             
-            <div class="countdown">
-                ⏰ 优惠倒计时
-                <div class="countdown-timer" id="countdown">23:59:59</div>
+            <!-- Preline Accordion -->
+            <div class="hs-accordion-group space-y-4">
+                <div class="hs-accordion active bg-white rounded-xl overflow-hidden" id="faq-1">
+                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-1-collapse">
+                        <span class="font-semibold text-slate-900">我没有AI技术背景，可以学吗？</span>
+                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
+                    </button>
+                    <div id="faq-1-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-1">
+                        <div class="px-6 pb-6 text-slate-600">完全可以！本课程正是为零基础学员设计，重点在于建立AI产品思维和掌握必备的技术概念，不需要coding能力。课程会讲解产品经理需要了解的技术知识，而不是深入代码实现。</div>
+                    </div>
+                </div>
+                
+                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-2">
+                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-2-collapse">
+                        <span class="font-semibold text-slate-900">课程是直播还是录播？</span>
+                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
+                    </button>
+                    <div id="faq-2-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-2">
+                        <div class="px-6 pb-6 text-slate-600">课程采用直播+录播结合的形式。每周直播授课2小时（有回放），课下可以随时观看录播复习。实战环节也会有直播演示，确保你能跟上进度。</div>
+                    </div>
+                </div>
+                
+                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-3">
+                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-3-collapse">
+                        <span class="font-semibold text-slate-900">学完能找到AI产品经理的工作吗？</span>
+                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
+                    </button>
+                    <div id="faq-3-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-3">
+                        <div class="px-6 pb-6 text-slate-600">课程提供完善的求职服务，包括简历优化、面试辅导和内推机会。往期学员面试通过率超过95%，但最终结果取决于个人努力程度。我们提供的是系统化培训和资源，能否成功取决于你的学习和实践。</div>
+                    </div>
+                </div>
+                
+                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-4">
+                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-4-collapse">
+                        <span class="font-semibold text-slate-900">课程有效期是多久？</span>
+                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
+                    </button>
+                    <div id="faq-4-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-4">
+                        <div class="px-6 pb-6 text-slate-600">一次付费，永久有效。课程内容会持续更新，学员可以无限次观看全部课程内容，无需额外付费。</div>
+                    </div>
+                </div>
+                
+                <div class="hs-accordion bg-white rounded-xl overflow-hidden" id="faq-5">
+                    <button class="hs-accordion-toggle w-full px-6 py-4 flex items-center justify-between text-left" aria-controls="faq-5-collapse">
+                        <span class="font-semibold text-slate-900">可以分期付款吗？</span>
+                        <svg class="hs-accordion-active:block hidden w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        <svg class="hs-accordion-active:hidden block w-5 h-5 text-indigo-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/></svg>
+                    </button>
+                    <div id="faq-5-collapse" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden" aria-labelledby="faq-5">
+                        <div class="px-6 pb-6 text-slate-600">支持花呗分期付款，最长可分12期，每期仅需约108元起。报名时可以根据自身情况选择合适的分期方案。</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <section class="testimonials">
-        <h2 class="section-title">💬 学员评价</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Zero君的课程真的帮我完成了转型！之前做传统互联网产品，一直想转AI方向但不知道从哪里入手。跟着课程学完后，成功拿到了字节AI产品的offer！"</p>
-                <div class="testimonial-author">小明同学</div>
-                <div class="testimonial-role">成功转型 → 字节AI产品经理</div>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"最值的是实战项目部分。老师带着从0到1做了一个AI Agent，面试时当成作品展示，面试官特别感兴趣，问了很多细节。"</p>
-                <div class="testimonial-author">小红同学</div>
-                <div class="testimonial-role">成功转型 → 腾讯AI产品经理</div>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"课程内容非常体系化，从技术基础到产品方法论再到面试技巧，覆盖了转AI产品经理需要的所有知识点。强烈推荐！"</p>
-                <div class="testimonial-author">小刚同学</div>
-                <div class="testimonial-role">成功转型 → 阿里AI产品经理</div>
+    <!-- Register Section -->
+    <section class="py-20 bg-slate-900" id="register">
+        <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-800 rounded-3xl p-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">🚀 扫码添加微信</h2>
+                <div class="mb-6">
+                    <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="微信二维码" class="w-64 h-64 mx-auto rounded-2xl">
+                </div>
+                <p class="text-slate-400 text-lg mb-2">扫码添加微信，备注：课程咨询</p>
+                <p class="text-slate-500 text-sm">工作日24小时内通过验证</p>
+                <a href="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" target="_blank" class="inline-block gradient-bg text-white px-8 py-3 rounded-full font-semibold mt-6 hover:opacity-90 transition">点击查看大图</a>
             </div>
         </div>
     </section>
-
-    <section class="faq">
-        <h2 class="section-title">❓ 常见问题</h2>
-        <div class="faq-list">
-            <div class="faq-item">
-                <div class="faq-question">我没有AI技术背景，可以学吗？</div>
-                <div class="faq-answer">完全可以！本课程正是为零基础学员设计，重点在于建立AI产品思维和掌握必备的技术概念，不需要coding能力。课程会讲解产品经理需要了解的技术知识，而不是深入代码实现。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">课程是直播还是录播？</div>
-                <div class="faq-answer">课程采用直播+录播结合的形式。每周直播授课2小时（有回放），课下可以随时观看录播复习。实战环节也会有直播演示，确保你能跟上进度。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">学完能找到AI产品经理的工作吗？</div>
-                <div class="faq-answer">课程提供完善的求职服务，包括简历优化、面试辅导和内推机会。往期学员面试通过率超过95%，但最终结果取决于个人努力程度。我们提供的是系统化培训和资源，能否成功取决于你的学习和实践。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">课程有效期是多久？</div>
-                <div class="faq-answer">一次付费，永久有效。课程内容会持续更新，学员可以无限次观看全部课程内容，无需额外付费。</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">可以分期付款吗？</div>
-                <div class="faq-answer">支持花呗分期付款，最长可分12期，每期仅需约108元起。报名时可以根据自身情况选择合适的分期方案。</div>
-            </div>
+    
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-500">© 2026 Zero君AI产品经理训练营 | 让每一个产品人都能抓住AI红利</p>
         </div>
-    </section>
-
-    <section class="register" id="register">
-        <div class="register-card">
-            <h2 class="register-title">🚀 扫码添加微信</h2>
-            <div style="text-align: center;">
-                <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="微信二维码" style="width: 250px; height: 250px; border-radius: 16px; margin: 1.5rem 0;">
-                <p style="color: #94a3b8; font-size: 1.1rem;">扫码添加微信，备注：课程咨询</p>
-                <p style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">工作日24小时内通过验证</p>
-            </div>
-            <a href="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" target="_blank" class="btn btn-primary" style="display: block; width: 100%; margin-top: 1.5rem; text-align: center;">点击查看大图</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Zero君AI产品经理训练营 | 让每一个产品人都能抓住AI红利</p>
     </footer>
-
+    
     <script>
         // Countdown Timer
         function updateCountdown() {
             const now = new Date();
             const endOfDay = new Date(now);
             endOfDay.setHours(23, 59, 59, 999);
-            
             const diff = endOfDay - now;
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('countdown').textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            document.getElementById("countdown").textContent = 
+                String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
         }
-        
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-        
-        // Form Submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Show success message (in real scenario, send to backend)
-            alert('报名信息已提交！课程顾问将在24小时内联系你。');
-            this.reset();
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll
+        document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Add scroll reveal animation
-        window.addEventListener('scroll', () => {
-            const modules = document.querySelectorAll('.module');
-            modules.forEach((module, index) => {
-                const rect = module.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    module.style.opacity = '1';
-                    module.style.transform = 'translateX(0)';
-                }
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) target.scrollIntoView({ behavior: "smooth" });
             });
         });
     </script>
