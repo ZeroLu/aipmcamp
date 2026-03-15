@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero君AI产品经理转型实战训练营 | 8周从入门到求职</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <!-- Preline CSS - 国内CDN -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/preline/2.5.1/preline.min.css">
     <script>
@@ -42,9 +43,15 @@
                     <span class="text-2xl font-bold gradient-text">Zero君AI</span>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#curriculum" class="text-slate-300 hover:text-white transition">课程大纲</a>
-                    <a href="#pricing" class="text-slate-300 hover:text-white transition">价格</a>
-                    <a href="#register" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">立即报名</a>
+                    <a href="#curriculum" class="text-slate-300 hover:text-white transition flex items-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>课程大纲
+                    </a>
+                    <a href="#pricing" class="text-slate-300 hover:text-white transition flex items-center gap-2">
+                        <i data-lucide="tag" class="w-4 h-4"></i>价格
+                    </a>
+                    <a href="#register" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i>立即报名
+                    </a>
                 </nav>
             </div>
         </div>
@@ -471,5 +478,9 @@
     <footer class="py-8 bg-slate-900 text-slate-400 text-center">
         <p>Zero君AI产品经理转型实战训练营</p>
     </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
