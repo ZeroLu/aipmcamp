@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero君AI产品经理转型实战训练营 | 9周从入门到求职</title>
+    <title>Zero君AI产品经理转型实战训练营 | 10周从入门到求职</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <!-- Preline CSS - 国内CDN -->
@@ -15,13 +15,16 @@
                     colors: {
                         primary: {500: "#6366f1", 600: "#4f46e5", 700: "#4338ca"},
                         secondary: {500: "#06b6d4", 600: "#0891b2"},
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; scroll-behavior: smooth; }
         .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
         .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .gradient-bg { background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%); }
@@ -32,11 +35,15 @@
             display: flex; align-items: center; justify-content: center; 
             font-weight: bold; color: white; flex-shrink: 0;
         }
+        /* 隐藏滚动条但允许滚动 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-600">
+
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+    <header class="fixed top-0 w-full z-40 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
@@ -47,46 +54,74 @@
                         <i data-lucide="book-open" class="w-4 h-4"></i>课程大纲
                     </a>
                     <a href="#pricing" class="text-slate-300 hover:text-white transition flex items-center gap-2">
-                        <i data-lucide="tag" class="w-4 h-4"></i>价格
+                        <i data-lucide="tag" class="w-4 h-4"></i>课程价格
                     </a>
-                    <a href="#register" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition flex items-center gap-2">
+                    <button onclick="openTeacherModal()" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition flex items-center gap-2 shadow-lg shadow-indigo-500/20">
                         <i data-lucide="send" class="w-4 h-4"></i>立即报名
-                    </a>
+                    </button>
                 </nav>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen pt-24 relative overflow-hidden">
+    <section class="hero-bg min-h-screen pt-24 relative overflow-hidden flex flex-col justify-center">
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute top-1/4 -right-32 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
             <div class="absolute bottom-1/4 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="text-center">
-                <span class="inline-block bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 px-4 py-2 rounded-full text-sm mb-6">2026年最值得投资的AI产品课程</span>
+                <span class="inline-block bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 px-4 py-2 rounded-full text-sm mb-6 animate-pulse">2026年最值得投资的AI产品课程</span>
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                     <span class="gradient-text">Zero君AI产品经理</span><br>转型实战训练营
                 </h1>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">9周系统训练，从AI小白到offer收割机。前字节AI高级产品经理亲授，带你零基础转型AI产品经理</p>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">10周系统训练，从AI小白到offer收割机。前字节AI高级产品经理亲授，带你零基础转型AI产品经理</p>
                 <div class="flex flex-wrap justify-center gap-8 mb-10">
                     <div class="text-center">
                         <div class="text-4xl font-bold text-white">9.1</div>
-                        <div class="text-slate-400 text-sm">课程平均评分</div>
+                        <div class="text-slate-400 text-sm mt-1">课程平均评分</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-white">9</div>
-                        <div class="text-slate-400 text-sm">节直播课</div>
+                        <div class="text-4xl font-bold text-white">10</div>
+                        <div class="text-slate-400 text-sm mt-1">节直播大课</div>
                     </div>
                     <div class="text-center">
                         <div class="text-4xl font-bold text-white">1~1.5h</div>
-                        <div class="text-slate-400 text-sm">每节课</div>
+                        <div class="text-slate-400 text-sm mt-1">每节课时长</div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#register" class="gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition shadow-lg shadow-indigo-500/30">立即抢占名额</a>
-                    <a href="#curriculum" class="border border-slate-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition">查看课程大纲</a>
+                    <button onclick="openTeacherModal()" class="gradient-bg text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition shadow-xl shadow-indigo-500/30 transform hover:-translate-y-1">立即抢占名额</button>
+                    <a href="#curriculum" class="border border-slate-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition flex items-center justify-center gap-2">查看课程大纲 <i data-lucide="arrow-down" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Data Section -->
+    <section class="py-12 bg-white relative z-20 -mt-16 mx-4 sm:mx-auto max-w-6xl rounded-3xl shadow-2xl border border-slate-100">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">2026年，AI产品经理迎来<span class="text-indigo-600">爆发式红利期</span></h2>
+                <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">随着 OpenClaw、Claude Code 等破圈级产品爆发，AI Agent 进一步进入了产业落地期，带来了大量全新的岗位机会。这不仅是一个风口，更是普通人实现阶层跨越的绝佳职业拐点。</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-slate-100">
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-extrabold text-indigo-600 mb-2">35k-60k</div>
+                    <div class="text-slate-500 text-sm font-medium">一线城市平均月薪</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-extrabold text-cyan-600 mb-2">1 : 8</div>
+                    <div class="text-slate-500 text-sm font-medium">人才供求比例极度紧缺</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-extrabold text-indigo-600 mb-2">+45%</div>
+                    <div class="text-slate-500 text-sm font-medium">薪资涨幅(对比传统PM)</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-extrabold text-cyan-600 mb-2">300%</div>
+                    <div class="text-slate-500 text-sm font-medium">2026年新增岗位增速</div>
                 </div>
             </div>
         </div>
@@ -99,7 +134,7 @@
             <p class="text-slate-500 text-center mb-16 max-w-2xl mx-auto">不是科班出身，缺乏系统化的产品思维；没有实际项目经验，无法证明自己的能力</p>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-1 transition">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-2 transition duration-300">
                     <div class="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center mb-6">
                         <i data-lucide="brain" class="w-7 h-7 text-red-500"></i>
                     </div>
@@ -107,7 +142,7 @@
                     <p class="text-slate-600">非产品经理背景，不知道如何洞察需求、拆解指标、建立用户视角和产品判断力</p>
                 </div>
                 
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-1 transition">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-2 transition duration-300">
                     <div class="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-6">
                         <i data-lucide="workflow" class="w-7 h-7 text-amber-500"></i>
                     </div>
@@ -115,7 +150,7 @@
                     <p class="text-slate-600">不了解AI行业的评测方法、工作流程和工业级最佳实践，面试时缺乏专业深度</p>
                 </div>
                 
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-1 transition">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:-translate-y-2 transition duration-300">
                     <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-6">
                         <i data-lucide="code" class="w-7 h-7 text-green-500"></i>
                     </div>
@@ -125,9 +160,9 @@
             </div>
             
             <div class="mt-16 text-center">
-                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white px-8 py-4 rounded-2xl">
+                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white px-8 py-4 rounded-2xl shadow-lg shadow-indigo-500/20">
                     <i data-lucide="check-circle" class="w-6 h-6"></i>
-                    <span class="text-lg font-semibold">我们的课程，正是为你而来</span>
+                    <span class="text-lg font-semibold">我们的课程，正是为你打破困境而来</span>
                 </div>
             </div>
         </div>
@@ -138,21 +173,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">导师介绍</h2>
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 shadow-lg border border-slate-100">
-                    <div class="flex flex-col md:flex-row gap-8 items-center">
-                        <div class="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-cyan-500 flex-shrink-0">
-                            <img src="https://raw.githubusercontent.com/ZeroLu/aipmcamp/master/avatar.jpg" alt="Zero君" class="w-full h-full object-cover">
+                <div class="bg-gradient-to-br from-slate-50 to-white rounded-3xl p-8 md:p-10 shadow-xl border border-slate-100">
+                    <div class="flex flex-col md:flex-row gap-10 items-center">
+                        <div class="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-indigo-500 to-cyan-500 flex-shrink-0 p-1 shadow-lg">
+                            <img src="https://raw.githubusercontent.com/ZeroLu/aipmcamp/master/avatar.jpg" alt="Zero君" class="w-full h-full object-cover rounded-full border-4 border-white">
                         </div>
                         <div class="text-center md:text-left">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Zero君</h3>
-                            <p class="text-indigo-600 font-semibold mb-4">前字节跳动AI高级产品经理 | 某大厂AI Agent高级产品经理</p>
-                            <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">抖音/TikTok</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">AI Agent</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">5年+AI产品经验</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full text-sm">即刻3900+粉丝</span>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-2">Zero君</h3>
+                            <p class="text-indigo-600 font-semibold mb-4 text-lg">前字节跳动AI高级产品经理 | 某大厂AI Agent高级产品经理</p>
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                                <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">抖音/TikTok</span>
+                                <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">AI Agent</span>
+                                <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">5年+AI产品经验</span>
+                                <a href="https://web.okjike.com/u/31E6D5FE-9849-44F7-8486-07497E14E9F1" target="_blank" class="bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium hover:bg-indigo-100 transition flex items-center gap-1 border border-indigo-100">
+                                    <i data-lucide="external-link" class="w-3 h-3"></i>即刻4300+粉丝
+                                </a>
                             </div>
-                            <p class="text-slate-600 leading-relaxed">我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有3900+粉丝。年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1+/10分。</p>
+                            <p class="text-slate-600 leading-relaxed mb-4">我是Zero君，从2020年开始从事AI产品经理工作，最初在抖音和TikTok负责AI特效产品，现在是某大厂AI Agent高级产品经理。我在即刻平台经常分享AI行业洞察，目前有4300+粉丝。<strong class="text-slate-800">我已经成功带领10+学员跨行业、跨职能上岸AI行业，在面试辅导、简历修改方面经验非常丰富。</strong></p>
+                            <p class="text-slate-600 leading-relaxed">年前我收到一家国内头部职场教育机构邀请，跟他们合作开发了一门"AI产品经理实战入门训练营"，课程为期10周，每周一节直播课+作业。效果非常好，每门课的学员评分超过9.1+/10分。</p>
                         </div>
                     </div>
                 </div>
@@ -160,20 +198,21 @@
         </div>
     </section>
 
-    <!-- Full Curriculum Section - All 8 Lessons Fully Expanded -->
-    <section class="py-20 bg-slate-900" id="curriculum">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Full Curriculum Section -->
+    <section class="py-20 bg-slate-900 relative" id="curriculum">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">课程大纲</h2>
-            <p class="text-slate-400 text-center mb-4">8节系统课程，从入门到求职，一站式搞定</p>
-            <p class="text-slate-500 text-center text-sm italic mb-8">课程大纲供参考，会根据同一期学员的背景和需求做适当调整</p>
-
+            <p class="text-slate-400 text-center mb-4 text-lg">10节系统课程，从入门到求职，一站式搞定</p>
+            <p class="text-slate-500 text-center text-sm italic mb-10">注：课程大纲供参考，会根据同一期学员的背景和需求做适当调整</p>
+            
             <!-- Lesson 1 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
                     <div class="section-number">1</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI产品经理的认知与定位</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块一：认知定位</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块一：认知定位</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>四类AI产品经理的分类与岗位差异</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>AI产品经理核心岗位要求拆解</li>
@@ -186,12 +225,12 @@
             </div>
 
             <!-- Lesson 2 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
                     <div class="section-number">2</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI产品工作方法论与全流程</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块二：方法论和流程</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块二：方法论和流程</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>业务/自身与AI方向的适配性判断</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>AI产品的能力边界与适用场景界定</li>
@@ -204,12 +243,31 @@
             </div>
 
             <!-- Lesson 3 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <div class="mb-6 bg-gradient-to-r from-indigo-900/40 to-slate-800/80 backdrop-blur-sm rounded-2xl border border-indigo-500/30 p-6 hover:border-indigo-500/80 transition duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">核心基石</div>
                 <div class="flex items-start gap-4">
                     <div class="section-number">3</div>
                     <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white mb-2">产品经理基础速通</h3>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块二：方法论和流程</p>
+                        <ul class="text-slate-300 space-y-2">
+                            <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>AI产品经理的基石：合格产品经理的核心素养</li>
+                            <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>需求分析能力：精准洞察用户痛点与业务诉求</li>
+                            <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>产品设计能力：输出合理、可落地的产品方案</li>
+                            <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>数据分析能力：建立数据指标体系与效果评估</li>
+                            <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>项目管理能力：把控项目进度与深度复盘闭环</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
+                <div class="flex items-start gap-4">
+                    <div class="section-number">4</div>
+                    <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI核心技术基础（LLM与生成式技术）</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块三：技术认知</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块三：技术认知</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>LLM（大语言模型）的本质原理</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>生成式图像技术核心要点</li>
@@ -221,13 +279,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 4 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 5 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">4</div>
+                    <div class="section-number">5</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI产品评测与调优技术</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块三：技术认知</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块三：技术认知</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>产品/技术/用户维度的三种评测方法</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>提示词工程的实操技巧与原则</li>
@@ -237,13 +295,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 5 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 6 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">5</div>
+                    <div class="section-number">6</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI Agent与编排技术核心</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块三：技术认知</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块三：技术认知</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>Agent范式核心（结合RAG、ReAct等框架）</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>MCP（多上下文处理）与记忆机制原理</li>
@@ -253,13 +311,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 6 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 7 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">6</div>
+                    <div class="section-number">7</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI编程与Dify平台实操</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块四：实战</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块四：实战</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>产品经理视角的AI编程基础（轻量编程能力）</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>Dify（贝拉斯）平台：无代码搭建AI工作流和问答机器人实操</li>
@@ -269,13 +327,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 7 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 8 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">7</div>
+                    <div class="section-number">8</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI产品全流程实战（从0到1做作品）</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块四：实战</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块四：实战</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>AI产品核心要素：需求分析+评测标准+AI编排</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>独立完成一款AI产品作品（涵盖需求、评测、Agent应用、AI编程/Dify落地）</li>
@@ -285,13 +343,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 8 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 9 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">8</div>
+                    <div class="section-number">9</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">AI产品经理求职与面试实战</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块五：简历和面试</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块五：简历和面试</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>简历的针对性包装技巧（突出超级用户思维、技术理解能力）</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>AI产品经理面试高频题解析与答题思路</li>
@@ -301,13 +359,13 @@
                 </div>
             </div>
 
-            <!-- Lesson 9 -->
-            <div class="mb-6 bg-slate-800 rounded-xl border border-slate-700 p-6">
+            <!-- Lesson 10 -->
+            <div class="mb-6 bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700 p-6 hover:border-indigo-500/50 transition duration-300">
                 <div class="flex items-start gap-4">
-                    <div class="section-number">9</div>
+                    <div class="section-number">10</div>
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-white mb-2">学员简历、作品集点评和针对性讲解</h3>
-                        <p class="text-slate-400 text-sm mb-4">模块五：简历和面试</p>
+                        <p class="text-indigo-400 text-sm mb-4 font-medium">模块五：简历和面试</p>
                         <ul class="text-slate-300 space-y-2">
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>简历深度点评与优化（分组进行）</li>
                             <li class="flex items-start gap-2"><span class="text-indigo-400 mt-1">-</span>作品集结构优化与展示技巧</li>
@@ -317,126 +375,75 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-20 bg-gradient-to-b from-white to-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">课程亮点</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">B</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">字节背景</h3>
-                    <p class="text-slate-600">前抖音/TikTok核心产品经理亲授，带给你最一线的AI产品经验</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">R</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">实战导向</h3>
-                    <p class="text-slate-600">9周完成2个实战项目，产出可展示的作品集，面试有话说</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">J</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">求职保障</h3>
-                    <p class="text-slate-600">简历优化、面试辅导、内推资源，帮你拿到理想offer</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">Q</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">社群服务</h3>
-                    <p class="text-slate-600">专属学员群，导师答疑，志同道合的伙伴一起成长</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">X</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">体系化学习</h3>
-                    <p class="text-slate-600">从认知到实战到求职，全链路覆盖，系统化提升</p>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-4 text-white text-3xl font-bold">U</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">持续更新</h3>
-                    <p class="text-slate-600">AI行业快速发展，课程内容持续迭代，紧跟最新趋势</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Updated with Posters) -->
     <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-4">转型成功案例</h2>
-            <p class="text-slate-600 text-center mb-12">真实学员转型经历</p>
+            <p class="text-slate-600 text-center mb-12 text-lg">真实学员转型经历，下一个就是你</p>
             
-            <!-- Text Cases -->
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 text-center">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=student1&backgroundColor=b6e3f4" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <h4 class="font-bold text-slate-900 mb-1">应届生 - 文科生</h4>
-                    <p class="text-slate-500 text-sm mb-3">零AI产品经验</p>
-                    <p class="text-slate-600 mb-3 text-sm">"不愧是有高级产品经理的真实经验，打破了我的学生思维，从业务角度来思考一个产品，而不是从技术或功能角度"</p>
-                    <p class="text-green-600 font-semibold">入职大厂AI产品经理</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 text-center">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=student2&backgroundColor=c0aede" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <h4 class="font-bold text-slate-900 mb-1">建筑学学生</h4>
-                    <p class="text-slate-500 text-sm mb-3">转专业求职</p>
-                    <p class="text-slate-600 mb-3 text-sm">"老师非常AI native，对AI最新技术有着深入了解和实战经验，不像其他脱离行业一线的老师只是泛泛而谈"</p>
-                    <p class="text-green-600 font-semibold">入职AI创业公司产品经理</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 text-center">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=student3&backgroundColor=d1d4f9" class="w-20 h-20 rounded-full mx-auto mb-4">
-                    <h4 class="font-bold text-slate-900 mb-1">新能源行业数据分析师</h4>
-                    <p class="text-slate-500 text-sm mb-3">3年数据分析经验</p>
-                    <p class="text-slate-600 mb-3 text-sm">"老师每一行作业都会认真批改，反复修改简历并提出针对性建议，还给了现役大厂面试官的真实输入，非常有帮助"</p>
-                    <p class="text-green-600 font-semibold">入职新能源公司AI产品经理</p>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-center text-slate-900 mb-4 mt-16">优秀作业展示</h3>
-            <p class="text-center text-slate-500 mb-8">学员实战作业包含：Web Coding 网站开发、PRD 技术可行性分析报告、Agent 编排思路、Dify 搭建的 AI Agent 等（隐私已模糊处理）</p>
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="bg-white rounded-2xl p-3 shadow-lg border border-slate-200">
-                    <img src="homework1.jpg" alt="优秀作业1" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-3 shadow-lg border border-slate-200">
-                    <img src="homework2.jpg" alt="优秀作业2" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-3 shadow-lg border border-slate-200">
-                    <img src="homework3.jpg" alt="优秀作业3" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-3 shadow-lg border border-slate-200">
-                    <img src="homework4.jpg" alt="优秀作业4" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-3 shadow-lg border border-slate-200">
-                    <img src="homework5.jpg" alt="优秀作业5" class="w-full rounded-xl">
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-center text-slate-900 mb-8">学员评价</h3>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200">
-                    <img src="testimonial1.jpg" alt="学员评价1" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200">
-                    <img src="testimonial2.jpg" alt="学员评价2" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200">
-                    <img src="testimonial3.jpg" alt="学员评价3" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200">
-                    <img src="testimonial4.jpg" alt="学员评价4" class="w-full rounded-xl">
-                </div>
-                <div class="bg-white rounded-2xl p-4 shadow-lg border border-slate-200 md:col-span-2">
-                    <img src="testimonial5.jpg" alt="学员评价5" class="w-full rounded-xl max-w-xl mx-auto">
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <div class="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-2xl">
-                    <span class="text-4xl font-bold">9.1+</span>
-                    <div class="text-left">
-                        <div class="text-sm opacity-90">学员评分</div>
-                        <div class="text-xs opacity-75">每门课平均分</div>
+            <!-- Poster Cases -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+                
+                <!-- Case 1 -->
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden hover:-translate-y-2 transition duration-300 flex flex-col">
+                    <div class="w-full aspect-[9/16] bg-[#a91d22] flex items-center justify-center p-4">
+                        <img src="https://static.nanobananaproprompts.com/images/aipmcamp/example_1.JPG" alt="喜报1" class="w-full h-full object-contain drop-shadow-2xl">
+                    </div>
+                    <div class="p-6 text-center flex-1 flex flex-col justify-center bg-gradient-to-b from-red-50/50 to-white">
+                        <p class="text-slate-500 text-sm mb-2 font-medium">原医疗行业 算法工程师</p>
+                        <div class="flex items-center justify-center gap-2 mb-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-red-500"></i>
+                            <h4 class="font-bold text-slate-900 text-lg">上岸芯片制造业</h4>
+                        </div>
+                        <p class="text-slate-700 font-semibold mb-3">任 AI产品经理</p>
+                        <div class="inline-block bg-red-100 text-red-700 px-4 py-1.5 rounded-full font-black text-lg">
+                            涨薪 40%！
+                        </div>
                     </div>
                 </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden hover:-translate-y-2 transition duration-300 flex flex-col relative">
+                    <div class="absolute top-4 right-[-30px] bg-amber-500 text-white text-xs font-bold px-10 py-1 shadow-lg transform rotate-45 z-10">
+                        跨行奇迹
+                    </div>
+                    <div class="w-full aspect-[9/16] bg-[#a91d22] flex items-center justify-center p-4">
+                        <img src="https://static.nanobananaproprompts.com/images/aipmcamp/example_2.JPG" alt="喜报2" class="w-full h-full object-contain drop-shadow-2xl">
+                    </div>
+                    <div class="p-6 text-center flex-1 flex flex-col justify-center bg-gradient-to-b from-red-50/50 to-white">
+                        <p class="text-slate-500 text-sm mb-2 font-medium">原体育赛事行业 赛事运营</p>
+                        <div class="flex items-center justify-center gap-2 mb-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-red-500"></i>
+                            <h4 class="font-bold text-slate-900 text-lg">上岸机器人行业</h4>
+                        </div>
+                        <p class="text-slate-700 font-semibold mb-3">任 Agent产品经理</p>
+                        <div class="inline-block bg-red-100 text-red-700 px-4 py-1.5 rounded-full font-black text-lg">
+                            涨薪 175%！
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden hover:-translate-y-2 transition duration-300 flex flex-col">
+                    <div class="w-full aspect-[9/16] bg-[#a91d22] flex items-center justify-center p-4">
+                        <img src="https://static.nanobananaproprompts.com/images/aipmcamp/example_3.JPG" alt="喜报3" class="w-full h-full object-contain drop-shadow-2xl">
+                    </div>
+                    <div class="p-6 text-center flex-1 flex flex-col justify-center bg-gradient-to-b from-red-50/50 to-white">
+                        <p class="text-slate-500 text-sm mb-2 font-medium">原运营商行业 SaaS产品经理</p>
+                        <div class="flex items-center justify-center gap-2 mb-3">
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-red-500"></i>
+                            <h4 class="font-bold text-slate-900 text-lg">上岸芯片半导体行业</h4>
+                        </div>
+                        <p class="text-slate-700 font-semibold mb-3">任 AI产品经理</p>
+                        <div class="inline-block bg-red-100 text-red-700 px-4 py-1.5 rounded-full font-black text-lg">
+                            涨薪 40%！
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -444,85 +451,220 @@
     <!-- Pricing Section -->
     <section class="py-20 bg-slate-900 relative overflow-hidden" id="pricing">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">限时优惠</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">投资自己，抢占先机</h2>
+                <p class="text-slate-400">现在报名，锁定早鸟特惠名额</p>
+            </div>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- 基础班 -->
-                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-slate-600 shadow-xl">
+                <div class="bg-slate-800/80 backdrop-blur-md rounded-3xl p-8 border-2 border-slate-600 shadow-xl hover:border-slate-500 transition">
                     <div class="text-center text-slate-400 text-sm uppercase tracking-wider mb-2">第2期 | 2026年3月28日开营</div>
                     <h3 class="text-2xl font-bold text-white text-center mb-4">实战训练营</h3>
                     <div class="text-center mb-6">
-                        <span class="text-slate-500 line-through text-xl">¥6999</span>
-                        <span class="text-5xl font-bold text-white ml-2">¥4999</span>
+                        <span class="text-slate-500 line-through text-xl">¥***</span>
+                        <span class="text-5xl font-bold text-white ml-2">¥***</span>
                     </div>
                     <div class="text-center mb-4">
-                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold">立省2000元 | 限前10名</span>
+                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold text-sm">限时特惠 | 仅限前10名</span>
                     </div>
-                    <ul class="mt-6 space-y-3 text-slate-300">
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>9周完整课程（50+课时）</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>2个实战项目作品集</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>简历优化1对1指导</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>面试模拟辅导</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>专属学员社群</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>内推机会</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>课程永久回看</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">+</span>7天无理由退款</li>
+                    <ul class="mt-8 space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>10周完整课程（50+课时）</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>2个实战项目作品集</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>简历优化1对1指导</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>面试模拟辅导</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>专属学员社群</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>内推机会</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>课程永久回看</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-500"></i>7天无理由退款</li>
                     </ul>
-                    <a href="#register" class="block bg-slate-700 text-white text-center py-4 rounded-full font-semibold text-lg mt-8 hover:bg-slate-600 transition">立即报名</a>
+                    <button onclick="openTeacherModal()" class="w-full block bg-slate-700 text-white text-center py-4 rounded-full font-bold text-lg mt-8 hover:bg-slate-600 transition">立即报名</button>
                 </div>
                 
                 <!-- VIP班 -->
-                <div class="bg-slate-800 rounded-3xl p-8 border-2 border-amber-500 shadow-2xl shadow-amber-500/20 relative">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-1 rounded-full font-semibold text-sm">推荐</div>
-                    <div class="text-center text-amber-400 text-sm uppercase tracking-wider mb-2">第2期 | 2026年3月28日开营</div>
+                <div class="bg-slate-800/90 backdrop-blur-md rounded-3xl p-8 border-2 border-amber-500 shadow-2xl shadow-amber-500/20 relative transform md:-translate-y-4">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-1.5 rounded-full font-bold text-sm shadow-lg">强烈推荐</div>
+                    <div class="text-center text-amber-400 text-sm uppercase tracking-wider mb-2 mt-2">第2期 | 2026年3月28日开营</div>
                     <h3 class="text-2xl font-bold text-white text-center mb-4">实战训练营 + 1V1求职陪跑</h3>
                     <div class="text-center mb-6">
-                        <span class="text-slate-500 line-through text-xl">¥12999</span>
-                        <span class="text-5xl font-bold text-white ml-2">¥8888</span>
+                        <span class="text-slate-500 line-through text-xl">¥***</span>
+                        <span class="text-5xl font-bold text-white ml-2">¥***</span>
                     </div>
                     <div class="text-center mb-4">
-                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold">立省4111元 | 限前5名</span>
+                        <span class="inline-block bg-amber-500 text-white px-4 py-2 rounded-full font-semibold text-sm animate-pulse">早鸟特惠 | 仅剩最后3个名额</span>
                     </div>
-                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 mb-4 text-center">
-                        <p class="text-amber-400 text-sm font-semibold">陪跑3-6个月，未拿到offer退50%</p>
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mb-6 text-center">
+                        <p class="text-amber-400 text-sm font-bold">🎯 陪跑3-6个月，未拿到offer退50%</p>
                     </div>
-                    <ul class="mt-6 space-y-3 text-slate-300">
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>实战训练营全部内容</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>1V1求职陪跑（3-6个月）</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>每周1次深度辅导通话</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>简历深度精修（不限次数）</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>模拟面试（不限次数）</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>内推绿色通道</li>
-                        <li class="flex items-center gap-2 pb-3 border-b border-slate-700"><span class="text-green-500">+</span>offer谈判指导</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">+</span>未拿到offer退50%</li>
+                    <ul class="mt-4 space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>实战训练营全部内容</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>1V1求职陪跑（3-6个月）</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>每周1次深度辅导通话</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>简历深度精修（不限次数）</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>模拟面试（不限次数）</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>内推绿色通道</li>
+                        <li class="flex items-center gap-3 pb-3 border-b border-slate-700/50"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>offer谈判指导</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-amber-500"></i>未拿到offer退50%</li>
                     </ul>
-                    <a href="#register" class="block gradient-bg text-white text-center py-4 rounded-full font-semibold text-lg mt-8 hover:opacity-90 transition shadow-lg shadow-amber-500/30">立即报名</a>
+                    <button onclick="openTeacherModal()" class="w-full block gradient-bg text-white text-center py-4 rounded-full font-bold text-lg mt-8 hover:opacity-90 transition shadow-lg shadow-amber-500/30 transform hover:-translate-y-1">立即报名</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WeChat QR Code Section -->
-    <section class="py-20 bg-white" id="register">
-        <div class="max-w-xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-8">扫码添加微信</h2>
-            <p class="text-slate-600 mb-6">备注：课程咨询</p>
-            <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 inline-block">
-                <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="微信二维码" class="w-64 h-64 object-contain">
+    <!-- Trial Class Section (New) -->
+    <section class="py-24 bg-gradient-to-b from-white to-slate-50" id="trial-class">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-16">还在考虑？不如来试听一节课</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100">
+                <!-- Left: Screenshot & QRs -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200 mb-8 transform hover:scale-[1.02] transition duration-300">
+                        <img src="https://static.nanobananaproprompts.com/images/aipmcamp/screenshot.png" alt="试听课截图" class="w-full object-cover">
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-8 justify-center w-full">
+                        <!-- Trial QR -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center flex-1">
+                            <p class="text-slate-800 font-bold mb-3 flex items-center justify-center gap-1">
+                                <i data-lucide="play-circle" class="w-4 h-4 text-indigo-600"></i> 扫码报名试听
+                            </p>
+                            <img src="https://static.nanobananaproprompts.com/images/aipmcamp/trial_class_qr_code.JPG" alt="试听课二维码" class="w-32 h-32 mx-auto rounded-lg shadow-sm">
+                            <p class="text-xs text-slate-500 mt-3">仅需 9.9元 (原价99)</p>
+                        </div>
+                        
+                        <!-- Teacher QR -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-center flex-1">
+                            <p class="text-slate-800 font-bold mb-3 flex items-center justify-center gap-1">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-green-600"></i> 扫码咨询老师
+                            </p>
+                            <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="老师二维码" class="w-32 h-32 mx-auto rounded-lg shadow-sm">
+                            <p class="text-xs text-slate-500 mt-3">备注：课程咨询</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Content -->
+                <div class="lg:pl-8">
+                    <div class="inline-block bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                        直播互动 · 答疑解惑
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8">试听课核心内容：</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold flex-shrink-0 mt-0.5">1</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">大厂视角的AI行业现状</h4>
+                                <p class="text-slate-500 text-sm mt-1">带你了解一线大厂真正在落地的AI业务是什么样。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold flex-shrink-0 mt-0.5">2</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">AI产品经理分类及职业规划</h4>
+                                <p class="text-slate-500 text-sm mt-1">帮你找准定位，避免盲目跟风，选对最适合自己的赛道。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold flex-shrink-0 mt-0.5">3</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">AI产品经理核心技能及方法论</h4>
+                                <p class="text-slate-500 text-sm mt-1">拆解从需求到落地的全流程，揭秘核心能力模型。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold flex-shrink-0 mt-0.5">4</div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">AI产品实战训练营介绍</h4>
+                                <p class="text-slate-500 text-sm mt-1">详细解读我们的10周课程体系如何帮你拿到Offer。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold flex-shrink-0 mt-0.5"><i data-lucide="star" class="w-4 h-4"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-800">互动环节——针对性简历诊断</h4>
+                                <p class="text-slate-500 text-sm mt-1">现场连麦，老师为你1V1进行职业规划分析与简历诊断。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-slate-500 mt-6">工作日24小时内通过验证</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-slate-900 text-slate-400 text-center">
-        <p>Zero君AI产品经理转型实战训练营</p>
-        <p class="text-sm mt-2 text-slate-500">本站由 Openclaw AI 助手生成</p>
+    <footer class="py-10 bg-slate-950 text-slate-500 text-center border-t border-slate-900">
+        <p class="font-medium text-slate-400">Zero君AI产品经理转型实战训练营</p>
+        <p class="text-sm mt-2">© 2026 All Rights Reserved.</p>
+        <p class="text-xs mt-4 opacity-50">本站由 Openclaw AI 助手生成</p>
     </footer>
 
+    <!-- ================= MODALS & FLOATING BUTTON ================= -->
+
+    <!-- Teacher Registration/Consultation Modal -->
+    <div id="teacherModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity" onclick="closeTeacherModal()"></div>
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full mx-4 relative z-10 shadow-2xl transform transition-all">
+            <button onclick="closeTeacherModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 rounded-full p-1 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center mt-2">
+                <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i data-lucide="user-plus" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">添加导师微信</h3>
+                <p class="text-slate-500 text-sm mb-6">扫码咨询报名，获取专属求职建议</p>
+                
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 mb-6 shadow-inner">
+                    <img src="https://cdnv2.ruguoapp.com/FqP8yL4dO63UvI4jzUzJvr2eIM6Ov3.jpg" alt="导师微信" class="w-56 h-56 mx-auto object-contain rounded-lg">
+                </div>
+                
+                <p class="text-slate-700 text-sm font-medium bg-amber-50 py-2.5 rounded-xl text-amber-800 border border-amber-200">
+                    💡 添加时请备注：<strong class="font-bold text-amber-900">课程咨询</strong>
+                </p>
+                <p class="text-xs text-slate-400 mt-4">工作日24小时内通过验证</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button onclick="openTeacherModal()" class="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white px-6 py-3.5 rounded-full shadow-xl shadow-indigo-500/40 hover:-translate-y-1 hover:shadow-2xl transition-all flex items-center gap-2 font-bold border-2 border-white/20 animate-bounce-slow">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        立即咨询 / 报名
+    </button>
+
+    <!-- Scripts -->
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
+
+        // Modal Logic
+        const teacherModal = document.getElementById('teacherModal');
+        let hasAutoOpened = false; // 记录是否已经自动弹出过
+
+        function openTeacherModal() {
+            teacherModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // 阻止背景滚动
+        }
+
+        function closeTeacherModal() {
+            teacherModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        }
+
+        // 30秒后自动弹出老师微信弹窗
+        setTimeout(() => {
+            // 如果还没自动弹出过，并且当前弹窗是隐藏状态，则触发弹出
+            if (!hasAutoOpened && teacherModal.classList.contains('hidden')) {
+                openTeacherModal();
+                hasAutoOpened = true;
+            }
+        }, 30000); // 30000毫秒 = 30秒
     </script>
+
 </body>
 </html>
